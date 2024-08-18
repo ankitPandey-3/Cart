@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 function Checkout() {
   const products = useSelector((state) => state.cart.items);
   const [total, setTotal] = useState(0);
+
   const calculateTotal = () => {
     let temp = 0;
     products.map((product) => {
@@ -10,9 +12,13 @@ function Checkout() {
     });
     return temp;
   };
+
   useEffect(() => {
     setTotal(calculateTotal);
+    window.scrollTo(0,0);
   }, [products]);
+
+
   return (
     <div className="mt-10 bg-gray-100 min-h-screen py-10 px-5">
       <div className="flex justify-between">

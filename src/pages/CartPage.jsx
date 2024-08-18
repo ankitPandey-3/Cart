@@ -16,6 +16,7 @@ function CartPage() {
 
   useEffect(() => {
     setTotal(calculateTotal);
+    window.scrollTo(0,0);
   }, [products]);
   return (
     <div className="mt-10 bg-gray-100 min-h-screen py-10 px-5">
