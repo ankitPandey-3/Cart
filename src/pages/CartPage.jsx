@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import CartProducts from "../Component/CartProducts";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 function CartPage() {
   const [total, setTotal] = useState(0);
   const products = useSelector((store) => store.cart.items);
   const navigate = useNavigate();
+
   const calculateTotal = () => {
     let temp = 0;
     products.map((product) => {
@@ -18,6 +20,7 @@ function CartPage() {
     setTotal(calculateTotal);
     window.scrollTo(0,0);
   }, [products]);
+  
   return (
     <div className="mt-10 bg-gray-100 min-h-screen py-10 px-5">
       <div className="flex justify-between">
