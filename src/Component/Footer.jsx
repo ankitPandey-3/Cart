@@ -7,11 +7,6 @@ export default function Footer() {
     <footer className="bg-white border-y w-full">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
-            <Link to="/" className="flex items-center">
-              <img src={LOGO} className="mr-3 h-56" alt="Logo" />
-            </Link>
-          </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
@@ -24,7 +19,7 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:underline">
+                  <Link to="/" className="hover:underline">
                     About
                   </Link>
                 </li>
@@ -74,11 +69,7 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center">
-            © 2024
-            <a href="https://hiteshchoudhary.com/" className="hover:underline">
-              ankitpandey
-            </a>
-            . All Rights Reserved.
+            © 2024ankitpandey. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
             <Link to="#" className="text-gray-500 hover:text-gray-900">
