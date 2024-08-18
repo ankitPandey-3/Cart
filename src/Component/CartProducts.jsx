@@ -6,24 +6,24 @@ import toast from "react-hot-toast";
 
 function CartProducts({ product }) {
   const { title, price, image, quantity } = product;
+  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const handleRemove = (e) => {
     e.preventDefault();
     dispatch(removeFromCart(product));
     toast.success("Removed");
   };
-  const hadleChangeQuantity = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     dispatch(
       updateQuantity({
         id: product.id,
-        quantity: e.target.value,
+        quantity: count,
       })
     );
-  };
+  }, [count]);
   return (
-    <div className="w-full mx-auto my-4 flex flex-col md:flex-row justify-center hover:scale-105 hover:shadow-sm transition-transform transform">
-      <div className="flex flex-col md:flex-row gap-6 bg-white border border-gray-300 rounded-xl overflow-hidden items-center md:items-start justify-between h-auto md:h-60 w-full md:w-2/3 p-4 space-y-4 md:space-y-0 md:space-x-4">
+    <div className="w-full mx-auto my-4 flex flex-col md:flex-row justify-center">
+      <div className="flex flex-col md:flex-row gap-6 bg-white border border-gray-300 rounded-xl overflow-hidden items-center md:items-start justify-between h-auto md:h-60 w-full md:w-2/3 p-4 space-y-4 md:space-y-0 md:space-x-4 hover:scale-105 hover:shadow-sm transition-transform transform">
         {/* Image Section */}
         <div className="w-full md:w-1/4 h-48 md:h-full flex-shrink-0">
           <img
@@ -49,17 +49,25 @@ function CartProducts({ product }) {
 
           {/* Price and Quantity */}
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <p className="font-semibold md:text-sm">Quantity: {quantity}</p>
-            <input
-              type="range"
-              name="quantity"
-              min="1"
-              max="10"
-              className="flex-1 cursor-pointer"
-              value={quantity}
-              onChange={hadleChangeQuantity}
-            />
-            <p className="font-semibold md:text-sm">Price: ${price * quantity}</p>
+            <div className="flex items-center gap-2">
+              <button
+                className="bg-gray-200 px-2 py-1 rounded"
+                onClick={() => setCount((prev) => prev - 1)}
+                disabled={count <= 1}
+              >
+                -
+              </button>
+              <p className="font-semibold md:text-sm">{count}</p>
+              <button
+                className="bg-gray-200 px-2 py-1 rounded"
+                onClick={() => setCount((prev) => prev + 1)}
+              >
+                +
+              </button>
+            </div>
+            <p className="font-semibold md:text-sm">
+              Price: ${price * quantity}
+            </p>
           </div>
         </div>
       </div>

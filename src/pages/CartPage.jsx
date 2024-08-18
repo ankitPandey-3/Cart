@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CartProducts from "../Component/CartProducts";
 import { useSelector } from "react-redux";
-import axios from "axios";
 function CartPage() {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -34,6 +33,11 @@ function CartPage() {
         {products.map((product, index) => (
           <CartProducts key={index} product={product} />
         ))}
+      </div>
+      <div className="flex justify-end">
+        <button className="flex bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded transition-colors text-md">
+          Checkout
+        </button>
       </div>
     </div>
   );

@@ -48,12 +48,12 @@ createRoot(document.getElementById("root")).render(
           toastOptions={{
             success: {
               style: {
-                background: "yellow",
+                background: "pink",
                 color: "black",
                 width: "auto",
               },
               iconTheme: {
-                primary: "blue",
+                primary: "red",
                 secondary: "white",
               },
             },
