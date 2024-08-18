@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import iconCart from "../assets/iconCart.png";
 import { useSelector } from "react-redux";
 function Header() {
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store) => store.cart.items);
   const [quantity, setQuantity] = useState(0);
   useEffect(() => {
     setQuantity(cartItems.length);

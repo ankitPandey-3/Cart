@@ -5,7 +5,7 @@ import axios from "axios";
 function CartPage() {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store) => store.cart.items);
 
   const calculateTotal = () => {
     let temp = 0;

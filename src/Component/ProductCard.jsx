@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 function ProductCard({ product }) {
   const { title, price, image, description, id } = product;
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store) => store.cart.items);
   const isInCart = cartItems.some((item) => item.id === id);
   const dispatch = useDispatch();
   const handleAddToCart = (e) => {
