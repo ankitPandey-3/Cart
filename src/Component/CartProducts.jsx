@@ -48,7 +48,7 @@ function CartProducts({ product }) {
           </div>
 
           {/* Price and Quantity */}
-          <div className="flex flex-col md:flex-row items-center gap-4 mt-2">
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-2 justify-between">
             <div className="flex items-center gap-2">
               <button
                 className="bg-gray-200 px-2 py-1 rounded"
@@ -65,7 +65,7 @@ function CartProducts({ product }) {
                 +
               </button>
             </div>
-            <p className="font-semibold md:text-sm">
+            <p className="font-semibold md:text-sm lg:mr-4">
               Price: ${price * quantity}
             </p>
           </div>
