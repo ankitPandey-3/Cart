@@ -13,9 +13,9 @@ function Checkout() {
     return temp;
   };
 
+  useEffect(()=>{scrollTo(0,0)},[]);
   useEffect(() => {
     setTotal(calculateTotal);
-    window.scrollTo(0,0);
   }, [products]);
 
 
