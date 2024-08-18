@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CartProducts from "../Component/CartProducts";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 function CartPage() {
-  const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
-  const cartItems = useSelector((store) => store.cart.items);
-
+  const products = useSelector((store) => store.cart.items);
+  const navigate = useNavigate();
   const calculateTotal = () => {
     let temp = 0;
     products.map((product) => {
@@ -15,9 +15,8 @@ function CartPage() {
   };
 
   useEffect(() => {
-    setProducts(cartItems);
     setTotal(calculateTotal);
-  }, [products, cartItems]);
+  }, [products]);
   return (
     <div className="mt-10 bg-gray-100 min-h-screen py-10 px-5">
       <div className="flex justify-between">
@@ -35,7 +34,12 @@ function CartPage() {
         ))}
       </div>
       <div className="flex justify-end">
-        <button className="flex bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded transition-colors text-md">
+        <button
+          className="flex bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded transition-colors text-md"
+          onClick={() => {
+            navigate("/checkout");
+          }}
+        >
           Checkout
         </button>
       </div>

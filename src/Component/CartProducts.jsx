@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 function CartProducts({ product }) {
   const { title, price, image, quantity } = product;
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(quantity);
   const dispatch = useDispatch();
   const handleRemove = (e) => {
     e.preventDefault();
